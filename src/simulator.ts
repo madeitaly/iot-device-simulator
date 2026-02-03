@@ -1,5 +1,4 @@
 import express from 'express';
-//import type { Request, Response } from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -9,8 +8,7 @@ dotenv.config();
 
 // --- CONFIGURATION ---
 const TARGET_API_URL = process.env.TARGET_API_URL || 'http://localhost:3000/api/telemetry';
-//const UPDATE_INTERVAL_MS = 5 * 60 * 1000; // 5 Minutes
-const UPDATE_INTERVAL_MS = 2000; // 1 sec
+const UPDATE_INTERVAL_MS = 5 * 60 * 1000; // 5 Minutes
 
 // 1. Determine Environment (default to 'development' if missing)
 const env = process.env.NODE_ENV || 'development';
@@ -19,7 +17,6 @@ const env = process.env.NODE_ENV || 'development';
 // We check for the specific env file, otherwise fall back to default 'devices.json'
 const specificConfig = `devices.${env}.json`;
 const defaultConfig = 'devices.json';
-
 
 
 // --- INTERFACES ---
