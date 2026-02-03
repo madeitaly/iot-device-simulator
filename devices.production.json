@@ -1,0 +1,32 @@
+[
+  {
+    "deviceId": 2,
+    "serial": "SN-239487-23",
+    "name": "TEST-Device-01",
+    "location": "London"
+  },
+  {
+    "deviceId": 3,
+    "serial": "SN-193774-93",
+    "name": "TEST-Device-02",
+    "location": "Rome"
+  },
+  {
+    "deviceId": 4,
+    "serial": "SN-987238-23",
+    "name": "TEST-Device-03",
+    "location": "Tokyo"
+  },
+  {
+    "deviceId": 5,
+    "serial": "SN-543672-81",
+    "name": "TEST-Device-04",
+    "location": "Paris"
+  },
+  {
+    "deviceId": 6,
+    "serial": "SN-328743-62",
+    "name": "TEST-Device-05",
+    "location": "Madrid"
+  }
+]

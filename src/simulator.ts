@@ -12,6 +12,16 @@ const TARGET_API_URL = process.env.TARGET_API_URL || 'http://localhost:3000/api/
 //const UPDATE_INTERVAL_MS = 5 * 60 * 1000; // 5 Minutes
 const UPDATE_INTERVAL_MS = 2000; // 1 sec
 
+// 1. Determine Environment (default to 'development' if missing)
+const env = process.env.NODE_ENV || 'development';
+
+// 2. Construct Path (e.g., 'devices.development.json')
+// We check for the specific env file, otherwise fall back to default 'devices.json'
+const specificConfig = `devices.${env}.json`;
+const defaultConfig = 'devices.json';
+
+
+
 // --- INTERFACES ---
 // Matches your Postgres "Device" table columns
 interface DeviceConfig {
@@ -111,9 +121,19 @@ const app = express();
 const devices: SimulatedDevice[] = [];
 
 // 1. Load the Registry
-const configPath = path.join(process.cwd(), 'devices.json');
+//const configPath = path.join(process.cwd(), 'devices.json');
+let configPath = path.join(process.cwd(), specificConfig);
+
+if (!fs.existsSync(configPath)) {
+    console.warn(`⚠️  Could not find ${specificConfig}, falling back to ${defaultConfig}`);
+    configPath = path.join(process.cwd(), defaultConfig);
+}
+
+// 3. Load
+console.log(`Loading configuration from: ${configPath}`);
 const rawConfig = fs.readFileSync(configPath, 'utf-8');
 const deviceConfigs: DeviceConfig[] = JSON.parse(rawConfig);
+
 
 console.log(`Loading ${deviceConfigs.length} devices from registry...`);
 

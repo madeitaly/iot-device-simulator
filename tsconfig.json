@@ -3,7 +3,6 @@
   "compilerOptions": {
     // File Layout
     "rootDir": "./src",
-    // "outDir": "./dist",
     "outDir": "./build",
 
     "module": "NodeNext",
@@ -11,41 +10,17 @@
     /* Module Resolution Options */
     "moduleResolution": "NodeNext", // OR "NodeNext"
     "resolveJsonModule": true,                      /* Include modules imported via .json files */
-
-    // FIX for EXTENSIONS .js
-    // "noEmit": true, // Recommended when using ts-node to prevent unnecessary file emission
-    // "noEmitOnError": true, // Reset this to true if you are running `tsc`
-    // "allowImportingTsExtensions": true,
-    // "allowJs": true,
-
     "target": "ES2023",
     "esModuleInterop": true,  /* Enables compatibility for default imports (e.g., allows `import express from 'express'` instead of `import * as express from 'express'`) */
-    //"forceConsistentCasingInFileNames": true,       /* Ensure file names are correctly cased (important for Unix systems) */
-
-    //"ignoreDeprecations": "6.0", //NOT WORKING from PRIMA GETTING STARTED
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    //"module": "nodenext", //REMOVED to ALLOW IMPORT WITHOUT EXTENSION
+  
     // For nodejs:
      "lib": ["esnext"],
      "types": ["node"],
-    // and npm install -D @types/node
-
+    
     // Other Outputs
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
-    // Stricter Typechecking Options
-    //"noUncheckedIndexedAccess": true,
-    //"exactOptionalPropertyTypes": true,
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
     /* Strict Type-Checking Options */
