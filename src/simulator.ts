@@ -8,15 +8,12 @@ dotenv.config();
 
 // --- CONFIGURATION ---
 const TARGET_API_URL = process.env.TARGET_API_URL || 'http://localhost:3000/api/telemetry';
-const UPDATE_INTERVAL_MS = 5 * 60 * 1000; // 5 Minutes
+const UPDATE_INTERVAL_MS = 10 * 1000; // 10 seconds
 
 // 1. Determine Environment (default to 'development' if missing)
 const env = process.env.NODE_ENV || 'development';
 
-// 2. Construct Path (e.g., 'devices.development.json')
-// We check for the specific env file, otherwise fall back to default 'devices.json'
 const specificConfig = `devices.${env}.json`;
-const defaultConfig = 'devices.json';
 
 
 // --- INTERFACES ---
@@ -122,8 +119,7 @@ const devices: SimulatedDevice[] = [];
 let configPath = path.join(process.cwd(), specificConfig);
 
 if (!fs.existsSync(configPath)) {
-    console.warn(`⚠️  Could not find ${specificConfig}, falling back to ${defaultConfig}`);
-    configPath = path.join(process.cwd(), defaultConfig);
+    console.warn(`⚠️  Could not find ${specificConfig}!`);
 }
 
 // 3. Load
